@@ -1,48 +1,52 @@
 {
-    "name": "String Gen Bot",
-    "description": "A Telegram Bot to generate Telethon and Pyrogram String Session.",
-    "logo": "https://telegra.ph/file/654ddaf472f18b799600b.jpg",
-    "keywords": [
-        "python3",
-        "telegram",
-        "session",
-        "stringbot",
-        "telegram-bot",
-        "pyrogram",
-        "telethon"
-    ],
-    "repository": "https://github.com/AnonymousX1025/StringGenBot",
-    "env": {
-      "API_ID": {
-        "description": "Get this value from https://my.telegram.org",
-        "value": "",
-        "required": true
-      },
-      "API_HASH": {
-        "description": "Get this value from https://my.telegram.org",
-        "value": "",
-        "required": true
-      },
-      "BOT_TOKEN": {
-        "description": "A Bot's token from Botfather",
-        "value": "",
-        "required": true
-      },
-      "OWNER_ID": {
-        "description": "Fill your user id here. (Must be integer)",
-        "value": "",
-        "required": true
-      },
-      "MONGO_DB_URI": {
-        "description": "Get this value from cloud.mongodb.com",
-        "value": "",
-        "required": true
-      }
+  "name": "String Gen Session Bot",
+  "description": "A Telegram Bot to generate Telethon and Pyrogram String Session",
+  "logo": "https://telegra.ph/file/b8d877d44850c58363ad7.jpg",
+  "keywords": [
+    "telegram",
+    "bot",
+    "python",
+    "pyrogram"
+  ],
+    "buildpacks": [{
+    "url": "heroku/python"
+  }],
+  "repository": "https://github.com/DevTeto/Sessionbot3",
+  "env": {
+    "ENVIRONMENT": {
+      "description": "لا تغير شئ سيبها",
+      "required": true,
+      "value": "ANYTHING"
     },
-    "buildpacks": [
-          {
-              "url": "heroku/python"
-          }
-      ],
-      "stack": "container"
+    "API_ID": {
+      "description": "ضع هنا الايبي ايدي من هنا ‹ my.telegram.org ›",
+      "required": true,
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "ضع هنا الايبي هاش من هنا ‹ my.telegram.org ›",
+      "required": true,
+      "value": ""
+    },
+    "OWNER_ID": {
+      "description": "ضع هنا ايدي مالك البوت مثال ‹ 6352598131 ›",
+      "required": true,
+      "value": ""
+    },
+    "MONGO_DB_URI": {
+      "description": "ضع كود المونجو من هنا ‹ cloud.mongodb.com ›",
+      "required": true,
+      "value": ""
+    },
+    "MUST_JOIN": {
+      "description": "ضع هنا يوزر الاشتراك الاجباري مثال ‹ A1DIIU ›",
+      "required": true,
+      "value": "A1DIIU"
+    },
+    "BOT_TOKEN": {
+      "description": "ضع هنا توكن بوتك من هنا ‹ @botfather ›",
+      "required": true,
+      "value": ""
+    }
   }
+}
