@@ -58,7 +58,7 @@ async def gen_session(
     except ListenerTimeout:
         return await Anony.send_message(
             user_id,
-            "» ᴛɪᴍᴇᴅ ʟɪᴍɪᴛ ʀᴇᴀᴄʜᴇᴅ ᴏғ 5 ᴍɪɴᴜᴛᴇs.\n\nᴘʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ sᴇssɪᴏɴ ᴀɢᴀɪɴ.",
+            "» تم الوصول إلى الحد الزمني لمدة 5 دقائق.\n\nيرجى البدء في إنشاء الجلسة مرة أخرى.",
             reply_markup=retry_key,
         )
 
@@ -70,7 +70,7 @@ async def gen_session(
     except ValueError:
         return await Anony.send_message(
             user_id,
-            "» ᴛʜᴇ ᴀᴘɪ ɪᴅ ʏᴏᴜ'ᴠᴇ sᴇɴᴛ ɪs ɪɴᴠᴀʟɪᴅ.\n\nᴘʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ sᴇssɪᴏɴ ᴀɢᴀɪɴ.",
+            "» معرف API الذي أرسلته غير صالح. \n\n الرجاء البدء في إنشاء الجلسة مرة أخرى",
             reply_markup=retry_key,
         )
 
@@ -84,7 +84,7 @@ async def gen_session(
     except ListenerTimeout:
         return await Anony.send_message(
             user_id,
-            "» ᴛɪᴍᴇᴅ ʟɪᴍɪᴛ ʀᴇᴀᴄʜᴇᴅ ᴏғ 5 ᴍɪɴᴜᴛᴇs.\n\nᴘʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ sᴇssɪᴏɴ ᴀɢᴀɪɴ.",
+            "» تم الوصول إلى الحد الزمني لمدة 5 دقائق.\n\nيرجى البدء في إنشاء الجلسة مرة أخرى.",
             reply_markup=retry_key,
         )
 
@@ -96,7 +96,7 @@ async def gen_session(
     if len(api_hash) < 30:
         return await Anony.send_message(
             user_id,
-            "» ᴛʜᴇ ᴀᴘɪ ʜᴀsʜ ʏᴏᴜ'ᴠᴇ sᴇɴᴛ ɪs ɪɴᴠᴀʟɪᴅ.\n\nᴘʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ sᴇssɪᴏɴ ᴀɢᴀɪɴ.",
+            "» معرف API الذي أرسلته غير صالح. \n\n الرجاء البدء في إنشاء الجلسة مرة أخرى",
             reply_markup=retry_key,
         )
 
@@ -110,7 +110,7 @@ async def gen_session(
     except ListenerTimeout:
         return await Anony.send_message(
             user_id,
-            "» ᴛɪᴍᴇᴅ ʟɪᴍɪᴛ ʀᴇᴀᴄʜᴇᴅ ᴏғ 5 ᴍɪɴᴜᴛᴇs.\n\nᴘʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ sᴇssɪᴏɴ ᴀɢᴀɪɴ.",
+            "» معرف API الذي أرسلته غير صالح. \n\n الرجاء البدء في إنشاء الجلسة مرة أخرى",
             reply_markup=retry_key,
         )
 
@@ -118,7 +118,7 @@ async def gen_session(
         return
     phone_number = phone_number.text
 
-    await Anony.send_message(user_id, "» ᴛʀʏɪɴɢ ᴛᴏ sᴇɴᴅ ᴏᴛᴩ ᴀᴛ ᴛʜᴇ ɢɪᴠᴇɴ ɴᴜᴍʙᴇʀ...")
+    await Anony.send_message(user_id, "» محاولة إرسال OTP على الرقم المحدد...")
     if telethon:
         client = TelegramClient(StringSession(), api_id, api_hash)
     elif old_pyro:
@@ -137,19 +137,19 @@ async def gen_session(
     except FloodWait as f:
         return await Anony.send_message(
             user_id,
-            f"» ғᴀɪʟᴇᴅ ᴛᴏ sᴇɴᴅ ᴄᴏᴅᴇ ғᴏʀ ʟᴏɢɪɴ.\n\nᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ғᴏʀ {f.value or f.x} sᴇᴄᴏɴᴅs ᴀɴᴅ ᴛʀʏ ᴀɢᴀɪɴ.",
+            f"» فشل في إرسال الرمز لتسجيل الدخول.\n\nمن فضلك انتظر {f.value or f.x} ثواني وحاول مرة أخرى.",
             reply_markup=retry_key,
         )
     except (ApiIdInvalid, ApiIdInvalidError, ApiIdInvalid1):
         return await Anony.send_message(
             user_id,
-            "» ᴀᴘɪ ɪᴅ ᴏʀ ᴀᴘɪ ʜᴀsʜ ɪs ɪɴᴠᴀʟɪᴅ.\n\nᴘʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ʏᴏᴜʀ sᴇssɪᴏɴ ᴀɢᴀɪɴ.",
+            "»خطاء في ستخراج جلسه او ايبي ايدي / ايبي هاش  غير صالحة \n\n الرجاء البدء في إنشاء جلستك مرة أخرى.",
             reply_markup=retry_key,
         )
     except (PhoneNumberInvalid, PhoneNumberInvalidError, PhoneNumberInvalid1):
         return await Anony.send_message(
             user_id,
-            "» ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ ɪɴᴠᴀʟɪᴅ.\n\nᴘʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ʏᴏᴜʀ sᴇssɪᴏɴ ᴀɢᴀɪɴ.",
+            "»رقم الهاتف غير صالح. \n\n الرجاء البدء في إنشاء جلستك مرة أخرى.",
             reply_markup=retry_key,
         )
 
@@ -165,7 +165,7 @@ async def gen_session(
     except ListenerTimeout:
         return await Anony.send_message(
             user_id,
-            "» ᴛɪᴍᴇ ʟɪᴍɪᴛ ʀᴇᴀᴄʜᴇᴅ ᴏғ 10 ᴍɪɴᴜᴛᴇs.\n\nᴩʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ʏᴏᴜʀ sᴇssɪᴏɴ ᴀɢᴀɪɴ.",
+            "»تم الوصول إلى الحد الزمني وهو 10 دقائق. \n\n الرجاء البدء في إنشاء جلستك مرة أخرى.",
             reply_markup=retry_key,
         )
 
@@ -178,27 +178,27 @@ async def gen_session(
     except (PhoneCodeInvalid, PhoneCodeInvalidError, PhoneCodeInvalid1):
         return await Anony.send_message(
             user_id,
-            "» ᴛʜᴇ ᴏᴛᴩ ʏᴏᴜ'ᴠᴇ sᴇɴᴛ ɪs <b>ᴡʀᴏɴɢ.</b>\n\nᴩʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ʏᴏᴜʀ sᴇssɪᴏɴ ᴀɢᴀɪɴ.",
+            "» كلمة المرور لمرة واحدة التي أرسلتها<b>خاطئة.</b>\n\nيرجى البدء في إنشاء جلستك مرة أخرى.",
             reply_markup=retry_key,
         )
     except (PhoneCodeExpired, PhoneCodeExpiredError, PhoneCodeExpired1):
         return await Anony.send_message(
             user_id,
-            "» ᴛʜᴇ ᴏᴛᴩ ʏᴏᴜ'ᴠᴇ sᴇɴᴛ ɪs <b>ᴇxᴩɪʀᴇᴅ.</b>\n\nᴩʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ʏᴏᴜʀ sᴇssɪᴏɴ ᴀɢᴀɪɴ.",
+            "» كلمة المرور لمرة واحدة التي أرسلتها<b>منتهي الصلاحية.</b>\n\nيرجى البدء في إنشاء جلستك مرة أخرى.",
             reply_markup=retry_key,
         )
     except (SessionPasswordNeeded, SessionPasswordNeededError, SessionPasswordNeeded1):
         try:
             pwd = await Anony.ask(
                 identifier=(message.chat.id, user_id, None),
-                text="» ᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ʏᴏᴜʀ ᴛᴡᴏ sᴛᴇᴘ ᴠᴇʀɪғɪᴄᴀᴛɪᴏɴ ᴘᴀssᴡᴏʀᴅ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ :",
+                text="» الرجاء إدخال كلمة مرور التحقق بخطوتين :",
                 filters=filters.text,
                 timeout=300,
             )
         except ListenerTimeout:
             return Anony.send_message(
                 user_id,
-                "» ᴛɪᴍᴇᴅ ʟɪᴍɪᴛ ʀᴇᴀᴄʜᴇᴅ ᴏғ 5 ᴍɪɴᴜᴛᴇs.\n\nᴘʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ sᴇssɪᴏɴ ᴀɢᴀɪɴ.",
+                "» تم الوصول إلى الحد الزمني لمدة 5 دقائق.\n\nيرجى البدء في إنشاء الجلسة مرة أخرى.",
                 reply_markup=retry_key,
             )
 
