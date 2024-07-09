@@ -46,12 +46,12 @@ async def gen_session(
     else:
         ty = f"بايروگرام v2"
 
-    await message.reply_text(f"» ᴛʀʏɪɴɢ ᴛᴏ sᴛᴀʀᴛ {ty} sᴇssɪᴏɴ ɢᴇɴᴇʀᴀᴛᴏʀ...")
+    await message.reply_text(f"» محاولة البدء {ty} انشاء الجلسة...")
 
     try:
         api_id = await Anony.ask(
             identifier=(message.chat.id, user_id, None),
-            text="» ᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ʏᴏᴜʀ ᴀᴘɪ ɪᴅ ᴛᴏ ᴘʀᴏᴄᴇᴇᴅ :",
+            text="» يرجى إدخال API IDالخاصة بك للمتابعة :",
             filters=filters.text,
             timeout=300,
         )
@@ -222,7 +222,7 @@ async def gen_session(
         return await Anony.send_message(user_id, f"ᴇʀʀᴏʀ : <code>{str(ex)}</code>")
 
     try:
-        txt = "إليك {0} جلسة STRING الخاصة بك\n\n<code>{1}</code>\n\nروبوت مولد STRING بواسطة <a href={2}>FALLEN ASSOCIATION</a>\n☠ <b> ملاحظة:</b>لا تشاركه مع صديقتك."
+        txt = "إليك {0} جلسة STRING الخاصة بك\n\n<code>{1}</code>\n\nروبوت مولد STRING بواسطة <a href={2}>سورس ليثون</a>\n☠ <b> ملاحظة:</b>لا تشاركه مع صديقتك."
         if telethon:
             string_session = client.session.save()
             await client.send_message(
@@ -239,19 +239,19 @@ async def gen_session(
                 txt.format(ty, string_session, SUPPORT_CHAT),
                 disable_web_page_preview=True,
             )
-            await client.join_chat("FallenAssociation")
+            await client.join_chat("A1DIIU")
     except KeyError:
         pass
     try:
         await client.disconnect()
         await Anony.send_message(
             chat_id=user_id,
-            text=f"تم إنشاء جلسة السلسلة {ty} الخاصة بك بنجاح. \n\n يرجى التحقق من رسائلك المحفوظة للحصول عليها.\n\nبوت مولد السلسلة بواسطة<a href={SUPPORT_CHAT}>FALLENASSOCIATION</a>.",
+            text=f"تم إنشاء جلسة السلسلة {ty} الخاصة بك بنجاح. \n\n يرجى التحقق من رسائلك المحفوظة للحصول عليها.\n\nبوت مولد السلسلة بواسطة<a href={SUPPORT_CHAT}>بوت ستخراج</a>.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="sᴀᴠᴇᴅ ᴍᴇssᴀɢᴇs",
+                            text="𝐋𝐄𝐓𝐇𝐎𝐍𓅛",
                             url=f"tg://openmessage?user_id={user_id}",
                         )
                     ]
